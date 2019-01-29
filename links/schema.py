@@ -1,4 +1,6 @@
 import graphene
+
+
 from graphene_django import DjangoObjectType
 from users.schema import UserType
 from links.models import Link, Vote
@@ -33,7 +35,7 @@ class Query(graphene.ObjectType):
 
         if search:
             filter = (
-                Q(url__icontains=search) | 
+                Q(url__icontains=search) |
                 Q(description__icontains=search)
             )
             qs = qs.filter(filter)
